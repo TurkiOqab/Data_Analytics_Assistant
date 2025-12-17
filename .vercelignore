@@ -1,0 +1,13 @@
+# Files to ignore during Vercel deployment
+.git
+.gitignore
+.env
+.env.example
+*.md
+*.csv
+*.zip
+__pycache__
+.DS_Store
+.streamlit/
+app.py
+main.py
