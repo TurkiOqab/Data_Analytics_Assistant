@@ -37,45 +37,45 @@ Then open http://localhost:5000 in your browser.
 
 ---
 
-## 🚀 Deploy to Vercel
+## 🚀 Deploy to Railway (Recommended)
 
-### Prerequisites
-- [Vercel CLI](https://vercel.com/docs/cli) installed (`npm i -g vercel`)
-- A Vercel account
+Railway supports large Python dependencies like pandas and matplotlib without size limits.
 
 ### Deployment Steps
 
-1. **Install Vercel CLI** (if not installed):
-   ```bash
-   npm install -g vercel
-   ```
+1. **Go to [railway.app](https://railway.app)** and sign up/login
 
-2. **Login to Vercel**:
-   ```bash
-   vercel login
-   ```
+2. **Create New Project** → "Deploy from GitHub repo"
 
-3. **Deploy**:
-   ```bash
-   cd /path/to/Data_Analytics_Assistant
-   vercel
-   ```
+3. **Connect your GitHub** and select `Data_Analytics_Assistant`
 
-4. **Set Environment Variables**:
-   In the Vercel dashboard, go to your project → Settings → Environment Variables and add:
-   - `GEMINI_API_KEY` = your Gemini API key
+4. **Add Environment Variable**:
+   - Go to Variables tab
+   - Add: `GEMINI_API_KEY` = your API key
 
-5. **Redeploy** (to apply environment variables):
-   ```bash
-   vercel --prod
-   ```
+5. **Deploy!** Railway will auto-detect the Python project and deploy.
 
-### Project Structure for Vercel
+---
+
+## Alternative: Deploy to Vercel
+
+> ⚠️ **Note**: Vercel has a 250MB size limit for serverless functions. This project exceeds that limit due to pandas/matplotlib. Use Railway instead.
+
+If you still want to try Vercel:
+```bash
+npm install -g vercel
+vercel login
+vercel
+```
+
+### Project Structure
 ```
 ├── api/
 │   └── index.py      # Serverless function entry point
 ├── static/           # Frontend assets
 ├── src/              # Backend modules
 ├── vercel.json       # Vercel configuration
+├── railway.toml      # Railway configuration
 └── requirements.txt  # Python dependencies
 ```
+
