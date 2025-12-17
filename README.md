@@ -57,25 +57,11 @@ Railway supports large Python dependencies like pandas and matplotlib without si
 
 ---
 
-## Alternative: Deploy to Vercel
-
-> ⚠️ **Note**: Vercel has a 250MB size limit for serverless functions. This project exceeds that limit due to pandas/matplotlib. Use Railway instead.
-
-If you still want to try Vercel:
-```bash
-npm install -g vercel
-vercel login
-vercel
-```
-
 ### Project Structure
 ```
-├── api/
-│   └── index.py      # Serverless function entry point
-├── static/           # Frontend assets
+├── static/           # Frontend assets (HTML, CSS, JS)
 ├── src/              # Backend modules
-├── vercel.json       # Vercel configuration
+├── server.py         # Flask application entry point
 ├── railway.toml      # Railway configuration
 └── requirements.txt  # Python dependencies
 ```
-

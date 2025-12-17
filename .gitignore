@@ -40,6 +40,3 @@ env/
 
 # Jupyter
 .ipynb_checkpoints/
-
-# Vercel
-.vercel/
