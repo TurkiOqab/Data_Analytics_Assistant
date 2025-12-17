@@ -16,6 +16,8 @@ const loadingOverlay = document.getElementById('loading-overlay');
 const loadingText = document.getElementById('loading-text');
 const apiStatus = document.getElementById('api-status');
 const chartsGrid = document.getElementById('charts-grid');
+const introArrow = document.getElementById('intro-arrow');
+const mainApp = document.getElementById('main-app');
 
 // State
 let isDatasetLoaded = false;
@@ -24,7 +26,17 @@ let isDatasetLoaded = false;
 document.addEventListener('DOMContentLoaded', () => {
     checkStatus();
     setupEventListeners();
+    setupIntroArrow();
 });
+
+// Setup Intro Arrow Click
+function setupIntroArrow() {
+    if (introArrow && mainApp) {
+        introArrow.addEventListener('click', () => {
+            mainApp.scrollIntoView({ behavior: 'smooth' });
+        });
+    }
+}
 
 // Setup Event Listeners
 function setupEventListeners() {
