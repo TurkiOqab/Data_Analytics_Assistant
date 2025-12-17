@@ -1,6 +1,6 @@
-"""Chat service for Q&A about datasets using Groq."""
+"""Chat service for Q&A about datasets using Gemini."""
 
-from .groq_client import GroqClient
+from .gemini_client import GeminiClient
 from .dataset_analyzer import DatasetAnalyzer
 
 
@@ -27,10 +27,10 @@ Here is the information about the current dataset:
 
         Args:
             analyzer: A DatasetAnalyzer instance for the current dataset.
-            model: Optional model override for Groq.
+            model: Optional model override for Gemini.
         """
         self.analyzer = analyzer
-        self.client = GroqClient(model=model)
+        self.client = GeminiClient(model=model)
         self.conversation_history = []
 
     def _get_system_prompt(self) -> str:

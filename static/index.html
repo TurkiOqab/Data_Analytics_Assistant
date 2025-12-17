@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analytics Assistant</title>
+    <meta name="description" content="Upload your dataset and get AI-powered insights">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">📊</span>
+                <h1>Data Analytics Assistant</h1>
+            </div>
+            <div class="status" id="api-status"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <!-- Upload Section -->
+            <section class="upload-section" id="upload-section">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-icon">📁</div>
+                    <h2>Drop your dataset here</h2>
+                    <p>or click to browse</p>
+                    <span class="upload-formats">Supports CSV, Excel, JSON</span>
+                    <input type="file" id="file-input" accept=".csv,.xlsx,.xls,.json" hidden>
+                </div>
+            </section>
+
+            <!-- Dataset Info Section (hidden until file uploaded) -->
+            <section class="dataset-section hidden" id="dataset-section">
+                <!-- Dataset Header -->
+                <div class="dataset-header">
+                    <div class="dataset-info">
+                        <span class="file-icon">📄</span>
+                        <span class="file-name" id="file-name">dataset.csv</span>
+                    </div>
+                    <button class="btn-clear" id="btn-clear">
+                        <span>✕</span> Clear
+                    </button>
+                </div>
+
+                <!-- Metrics Cards -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value" id="metric-rows">0</div>
+                        <div class="metric-label">Rows</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="metric-cols">0</div>
+                        <div class="metric-label">Columns</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value" id="metric-empty">0</div>
+                        <div class="metric-label">Empty Values</div>
+                    </div>
+                </div>
+
+                <!-- AI Generated Charts -->
+                <div class="charts-section" id="charts-section">
+                    <div class="section-header">
+                        <h3>📈 AI-Generated Insights</h3>
+                        <span class="section-note">Charts chosen by AI based on your data</span>
+                    </div>
+                    <div class="charts-grid" id="charts-grid">
+                        <!-- Charts will be inserted here -->
+                    </div>
+                </div>
+
+                <!-- Data Preview -->
+                <div class="preview-card">
+                    <div class="preview-header">
+                        <h3>Data Preview</h3>
+                        <span class="preview-note">First 10 rows</span>
+                    </div>
+                    <div class="table-container" id="table-container">
+                        <table id="preview-table">
+                            <thead id="table-head"></thead>
+                            <tbody id="table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chat Section -->
+            <section class="chat-section" id="chat-section">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-messages">
+                        <div class="chat-placeholder" id="chat-placeholder">
+                            <span class="placeholder-icon">💬</span>
+                            <p>Upload a dataset to start asking questions</p>
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="chat-input" placeholder="Ask a question about your data..." disabled>
+                        <button class="btn-send" id="btn-send" disabled>
+                            <span>➤</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="spinner"></div>
+        <p id="loading-text">Analyzing dataset...</p>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
